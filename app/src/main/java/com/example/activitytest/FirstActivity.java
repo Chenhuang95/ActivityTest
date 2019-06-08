@@ -1,11 +1,13 @@
 package com.example.activitytest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +36,20 @@ public class FirstActivity extends AppCompatActivity {
                 */
             }
         });
+    }
+
+//intent second返回
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode){
+            case 1:
+                if (requestCode==RESULT_OK){
+                    String returnedData = data.getStringExtra("data_return");
+                    Log.d("FirstActivity",returnedData);
+                }
+                break;
+                default:
+        }
     }
 
     //menu
